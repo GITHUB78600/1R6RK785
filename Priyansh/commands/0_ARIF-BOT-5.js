@@ -34,7 +34,7 @@ var tl = ["जी सर 🥺", "हा बॉस बोलो 🤗", "बॉस
   ////////////////@prem-babu3608/////////////////
    mess = "{name}"
 
-  if (event.body.includes(".") == 1 || (event.body.includes(",") == 1)) {
+  if (event.body.includes("🫣") == 1 || (event.body.includes("🫣🫣") == 1)) {
     var msg = {
       body: `${rand}`
     }
