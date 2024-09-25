@@ -125,13 +125,5 @@
         "creation": "2024-09-25T01:02:10.312Z",
         "lastAccessed": "2024-09-25T01:02:10.312Z"
     },
-    {
-        "key": "wl_cbv",
-        "value": "v2%3Bclient_version%3A2630%3Btimestamp%3A1727226031",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-09-25T01:02:10.312Z",
-        "lastAccessed": "2024-09-25T01:02:10.312Z"
-    }
+    
 ]
