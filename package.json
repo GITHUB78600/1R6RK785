@@ -5,7 +5,7 @@
 		"main": "Priyansh.js",
 	        "engines": {
 		"node": "16.x",
-		"npm": "7.0.0"
+		"npm": "8.0.0"
 	        },
 		"scripts": {
 				"start": "node index.js",
