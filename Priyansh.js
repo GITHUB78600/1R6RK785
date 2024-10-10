@@ -1,9 +1,52 @@
+const chalk = require('chalk');
+var cron = require("node-cron");
+const { exec } = require("child_process");
+const timerestart = 120
+var cron = require('node-cron');
+cron.schedule(`0 */18 * * * *`, () => {
+process.exit(1)
+},{
+  scheduled: true,
+  timezone: "Asia/Kolkata"
+});
+exec("rm -rf Priyansh/commands/data && mkdir -p Priyansh/commands/data && rm -rf Priyansh/commands/tad/* ", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`Successfull Auto Delete Cache!! ${stdout}`);
+});
+    /*shell*/
+    exec("rm -fr Priyansh/commands/cache/*.m4a && rm -fr Priyansh/commands/cache/*.mp4 && rm -fr Priyansh/commands/cache/*.mp3", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(chalk.bold.hex("#00ffff")("PRIYANSH RAJPUT (PRIYANSH) ❯ ") + chalk.hex("#00ffff")("fixed by PRIYANSH RAJPUT (PRIYANSH)"))
+});
+//console.log(DateAndTime);
+
+
+//////////////////////////////////////////////////////
+//========= Require all variable need use =========//
+/////////////////////////////////////////////////////
+
 const { readdirSync, readFileSync, writeFileSync, existsSync, unlinkSync, rm } = require("fs-extra");
 const { join, resolve } = require("path");
-const { execSync } = require('child_process');
-const chalk = require('chalk');
+const { execSync } = require('child_process'); 
 const logger = require("./utils/log.js");
 const login = require("fca-priyansh");
+//const login = require("helyt");
+//const login = require("fca-noder");
+//const login = require('fca-sus');
 const axios = require("axios");
 const listPackage = JSON.parse(readFileSync('./package.json')).dependencies;
 const listbuiltinModules = require("module").builtinModules;
@@ -183,7 +226,7 @@ function onBot({ models: botModel }) {
     loginData['appState'] = appState;
     login(loginData, async(loginError, loginApiData) => {
         if (loginError) return logger(JSON.stringify(loginError), `ERROR`);
-      
+
 loginApiData.setOptions(global.config.FCAOption)
         writeFileSync(appStateFile, JSON.stringify(loginApiData.getAppState(), null, '\x09'))
         global.config.version = '1.2.14'
